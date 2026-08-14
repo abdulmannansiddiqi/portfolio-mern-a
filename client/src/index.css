@@ -611,6 +611,23 @@ footer {
   .nav-links, .nav-actions { display: none; }
   .hamburger { display: flex; }
 }
+@media (max-width: 768px) {
+  .proj-thumb {
+    height: auto;
+    overflow: visible;
+    flex-direction: column;
+  }
+  .proj-thumb img {
+    height: 178px;
+    display: block;
+  }
+  .proj-overlay {
+    opacity: 1;
+    position: static;
+    background: none;
+    padding: 14px 16px 4px;
+  }
+}
 @media (max-width: 480px) {
   section { padding: 74px 5%; }
   nav { padding: 0 5%; }
