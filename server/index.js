@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+const Project = require('./models/Project');
 const cors = require('cors');
 const nodemailer = require('nodemailer');
 const mongoose = require('mongoose');
@@ -46,6 +47,16 @@ app.post('/api/contact', async (req, res) => {
   } catch (error) {
     console.error('Email error:', error);
     res.status(500).json({ error: 'Failed to send email.' });
+  }
+});
+
+app.get('/api/projects', async (req, res) => {
+  try {
+    const projects = await Project.find().sort({ createdAt: 1 });
+    res.status(200).json(projects);
+  } catch (error) {
+    console.error('Error fetching projects:', error);
+    res.status(500).json({ error: 'Failed to fetch projects.' });
   }
 });
 
