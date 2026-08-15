@@ -14,6 +14,8 @@ TONE & STYLE:
 
 ABOUT ABDUL MANNAN SIDDIQI:
 - Full Stack Developer based in Lahore, Pakistan
+- Born on January 24, 2004 (currently 22 years old)
+- Height: 6'2"
 - Has around 1-2 years of hands-on experience across internships and freelance/self-driven projects
 - Studied at The Islamia University of Bahawalpur — Associate's degree in Computer and Information Sciences and Support Services
 - Open to freelance projects, full-time remote roles, and on-site opportunities in Lahore

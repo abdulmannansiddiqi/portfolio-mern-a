@@ -9,6 +9,7 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 import WhatsAppFloat from './components/WhatsAppFloat'
 import BackToTop from './components/BackToTop'
+import ChatWidget from './components/ChatWidget'
 import useReveal from './hooks/useReveal'
 import './App.css'
 
@@ -28,6 +29,7 @@ function App() {
       <Footer />
       <WhatsAppFloat />
       <BackToTop />
+      <ChatWidget />
     </>
   )
 }
