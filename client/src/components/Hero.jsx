@@ -1,8 +1,15 @@
+import useTypewriter from '../hooks/useTypewriter';
+
 function Hero() {
+  const { displayed: typedRole, isDone } = useTypewriter('Full Stack Developer', 70);
+
   return (
     <section id="hero">
       <div className="hero-grid"></div>
       <div className="hero-glow"></div>
+      <div className="hero-particle p1"></div>
+      <div className="hero-particle p2"></div>
+      <div className="hero-particle p3"></div>
       <div className="hero-content">
         <div className="hero-badge">
           <span className="badge-dot"></span>
@@ -11,7 +18,9 @@ function Hero() {
         <h1 className="hero-name">
           Abdul Mannan<br /><span>Siddiqi</span>
         </h1>
-        <p className="hero-role">Full Stack Developer</p>
+        <p className="hero-role">
+          {typedRole}{!isDone && <span className="typing-cursor">&nbsp;</span>}
+        </p>
         <p className="hero-tagline">
           Engineering fast, scalable, and elegantly crafted web applications — from pixel-perfect interfaces to resilient back-end systems.
         </p>
