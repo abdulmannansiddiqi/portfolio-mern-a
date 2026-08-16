@@ -25,7 +25,7 @@ function Navbar() {
         </ul>
 
         <div className="nav-actions">
-          <a href="https://drive.google.com/file/d/1Qq22WCTc8qKNsIPaTkQar5OD0M2qFuoa/view?usp=drivesdk" target="_blank" rel="noreferrer" className="nav-resume">
+          <a href="/resume.pdf" target="_blank" rel="noreferrer" className="nav-resume">
             <i className="fas fa-file-alt"></i> Resume
           </a>
           <a href="#contact" className="nav-hire">Hire Me</a>
@@ -42,7 +42,7 @@ function Navbar() {
         <a href="#projects" onClick={() => setMobileOpen(false)}>Projects</a>
         <a href="#contact" onClick={() => setMobileOpen(false)}>Contact</a>
         <a href="#contact" onClick={() => setMobileOpen(false)}>Hire Me</a>
-        <a href="https://drive.google.com/file/d/1Qq22WCTc8qKNsIPaTkQar5OD0M2qFuoa/view?usp=drivesdk" target="_blank" rel="noreferrer" className="mobile-resume">
+        <a href="/resume.pdf" target="_blank" rel="noreferrer" className="mobile-resume">
           <i className="fas fa-file-alt"></i> Download Resume
         </a>
       </div>
