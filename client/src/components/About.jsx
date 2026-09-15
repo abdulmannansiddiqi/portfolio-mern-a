@@ -54,9 +54,9 @@ function About() {
           <span className="section-tag">About Me</span>
           <h2 className="section-title">Thoughtful Engineer,<br />Passionate Builder</h2>
           <div className="divider"></div>
-          <p>I'm <strong>Abdul Mannan Siddiqi</strong>, a Full Stack Web Developer based in Lahore, Pakistan. I build fast, scalable, and polished web applications that solve real problems — with clean architecture and great user experiences at the core.</p>
-          <p>My stack spans the full spectrum: <strong>React.js</strong> and <strong>Tailwind CSS</strong> on the frontend; <strong>Node.js / Express</strong> and <strong>PHP / Laravel</strong> on the backend; and production databases including <strong>MongoDB</strong> and <strong>MySQL</strong>. I've shipped AI-integrated platforms using Flask APIs and built role-based multi-user systems from scratch.</p>
-          <p>Great software lives at the intersection of technical precision and thoughtful design. Every line I write is intentional — optimized for performance, readability, and long-term maintainability.</p>
+          <p>I'm <strong>Abdul Mannan Siddiqi</strong>, a Full Stack Developer based in Lahore, Pakistan. I work across the <strong>MERN stack</strong>, turning ideas into applications that are actually live, working, and used by real people — not just running on localhost.</p>
+          <p>My stack: <strong>React.js</strong> and <strong>Next.js</strong> on the frontend; <strong>Node.js</strong>, <strong>Express</strong>, and <strong>PHP</strong> on the backend; <strong>MongoDB</strong> and <strong>MySQL</strong> (with Prisma ORM) for data. I've also integrated AI features into production apps — from a Flask-powered recommendation engine to a Gemini-powered chatbot on this very site.</p>
+          <p>Most recently, I built and deployed a full production website for <strong>Madina Model School</strong> — a real school, not a demo — complete with a secure, JWT-authenticated admin panel and a multi-service cloud setup.</p>
           <a href="#contact" className="btn-fill" style={{ fontSize: '14px', padding: '12px 26px', marginTop: '4px' }}>
             Let's Work Together &nbsp;→
           </a>
