@@ -4,20 +4,20 @@ const Project = require('./models/Project');
 
 const projectsData = [
   {
+    title: 'Madina Model School Website',
+    desc: 'A full production website for a real school, featuring a secure JWT-authenticated admin panel for staff-managed content and a multi-service cloud deployment.',
+    image: 'madina-school.png',
+    live: 'https://madina-school-website.vercel.app',
+    github: 'https://github.com/abdulmannansiddiqi/madina-school-website',
+    tags: ['Next.js', 'Node.js', 'Express', 'MySQL'],
+  },
+  {
     title: 'Coal Trade — AI Marketplace',
     desc: 'A full-stack marketplace featuring AI-driven product search and recommendation via Flask APIs, with secure JWT-based multi-user authentication.',
     image: 'coaltrade.jpg',
     live: 'https://coaltrade-ai.vercel.app/',
     github: 'https://github.com/abdulmannansiddiqi',
     tags: ['React', 'Node.js', 'MongoDB', 'Flask', 'REST APIs'],
-  },
-  {
-    title: 'Online Handmade Craft Store',
-    desc: 'A robust e-commerce engine with a reactive shopping cart, scalable order management, and secure role-based multi-user access control.',
-    image: 'handmade-crafts.jpg',
-    live: 'http://handmade-crafts.fwh.is',
-    github: 'https://github.com/abdulmannansiddiqi',
-    tags: ['React.js', 'Node.js', 'MongoDB', 'Tailwind CSS'],
   },
   {
     title: 'Daycare Management System',

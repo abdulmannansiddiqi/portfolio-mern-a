@@ -2,50 +2,52 @@ import { useState, useEffect } from 'react';
 import coaltradeImg from '../assets/projects/coaltrade.jpg'
 import handmadeImg from '../assets/projects/handmade-crafts.jpg'
 import daycareImg from '../assets/projects/daycare.jpg'
- 
+import madinaSchoolImg from '../assets/projects/madina-school.png'
+
 const imageMap = {
   'coaltrade.jpg': coaltradeImg,
   'handmade-crafts.jpg': handmadeImg,
   'daycare.jpg': daycareImg,
+  'madina-school.png': madinaSchoolImg,
 };
- 
+
 // Chhota helper function - ek dafa wait karne ke liye (retry ke beech delay)
 function wait(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
 }
- 
+
 function Projects() {
   const [projectsList, setProjectsList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(false);
- 
+
   // fetchProjects ko alag function banaya hai taake "Try Again" button
   // isay dobara call kar sake bina poora component reload kiye
   const fetchProjects = async () => {
     setLoading(true);
     setError(false);
- 
+
     const maxRetries = 3;
     const retryDelayMs = 2000; // har retry ke beech 2 second wait
- 
+
     for (let attempt = 1; attempt <= maxRetries; attempt++) {
       try {
         const res = await fetch(`${import.meta.env.VITE_API_URL}/api/projects`);
- 
+
         // res.ok check karna zaroori hai - agar server ne error status
         // (500, 502, 503 jaise cold-start ke waqt aata hai) bheja ho,
         // to hum usay success nahi maanenge aur retry karenge
         if (!res.ok) {
           throw new Error(`Server responded with status ${res.status}`);
         }
- 
+
         const data = await res.json();
         setProjectsList(data);
         setLoading(false);
         return; // success - loop se bahar nikal jao
       } catch (err) {
         console.error(`Attempt ${attempt} failed:`, err.message);
- 
+
         // Agar ye last attempt nahi tha, thoda wait karke dobara try karo
         if (attempt < maxRetries) {
           await wait(retryDelayMs);
@@ -57,11 +59,11 @@ function Projects() {
       }
     }
   };
- 
+
   useEffect(() => {
     fetchProjects();
   }, []);
- 
+
   return (
     <section id="projects">
       <div className="projects-inner">
@@ -73,7 +75,7 @@ function Projects() {
           </p>
           <div className="divider" style={{ marginLeft: 'auto', marginRight: 'auto' }}></div>
         </div>
- 
+
         {loading ? (
           <p style={{ textAlign: 'center', color: 'var(--muted)' }}>Loading projects...</p>
         ) : error ? (
@@ -128,5 +130,5 @@ function Projects() {
     </section>
   );
 }
- 
+
 export default Projects;
