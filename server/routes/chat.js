@@ -54,24 +54,66 @@ GUARDRAILS:
 
 CALL TO ACTION:
 - When relevant (e.g. visitor shows interest in hiring, collaborating, or asks how to reach out), naturally suggest contacting Abdul Mannan via email or WhatsApp. Don't force this into every single reply — only when it fits the conversation.`;
+
+// Chhota helper - retry ke beech wait karne ke liye
+function wait(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+// Gemini kabhi kabhi "high demand" (503/UNAVAILABLE) ki wajah se
+// temporarily fail ho jata hai. Ye function usay 3 dafa tak retry karta hai
+// thodi der wait karke, taake temporary overload khud handle ho jaye.
+async function generateWithRetry(userMessage, maxRetries = 3) {
+  const retryDelayMs = 1500;
+
+  for (let attempt = 1; attempt <= maxRetries; attempt++) {
+    try {
+      const response = await ai.models.generateContent({
+        model: 'gemini-3-flash-preview',
+        contents: userMessage,
+        config: {
+          systemInstruction: SYSTEM_PROMPT,
+        },
+      });
+      return response;
+    } catch (error) {
+      // Sirf 503 (overload/unavailable) errors pe retry karo -
+      // baaki errors (jaise invalid key, bad request) turant throw kar do
+      const isOverloaded = error?.status === 503;
+
+      if (isOverloaded && attempt < maxRetries) {
+        console.warn(`Gemini overloaded, retrying (attempt ${attempt}/${maxRetries})...`);
+        await wait(retryDelayMs);
+        continue;
+      }
+
+      throw error;
+    }
+  }
+}
+
 router.post('/', async (req, res) => {
   const { message } = req.body;
 
   if (!message) {
     return res.status(400).json({ error: 'Message is required.' });
   }
- try {
-    const response = await ai.models.generateContent({
-      model: 'gemini-3-flash-preview',
-      contents: `${SYSTEM_PROMPT}\n\nVisitor question: ${message}`,
-    });
+
+  try {
+    const response = await generateWithRetry(message);
 
     res.status(200).json({ reply: response.text });
   } catch (error) {
     console.error('Gemini API error:', error);
-    res.status(500).json({ error: 'Failed to get response from AI.' });
+
+    // Agar sab retries ke baad bhi 503 hi aaya, user ko clearer message do
+    const isOverloaded = error?.status === 503;
+    const errorMessage = isOverloaded
+      ? 'The AI assistant is experiencing high demand right now. Please try again in a moment.'
+      : 'Failed to get response from AI.';
+
+    res.status(isOverloaded ? 503 : 500).json({ error: errorMessage });
   }
 });
-
 
 module.exports = router;
