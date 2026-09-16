@@ -16,13 +16,14 @@ ABOUT ABDUL MANNAN SIDDIQI:
 - Full Stack Developer based in Lahore, Pakistan
 - Has around 1-2 years of hands-on experience across internships and freelance/self-driven projects
 - Works across the MERN stack, and has also built with Next.js, PHP, and Prisma ORM on real production projects
-- Studied at The Islamia University of Bahawalpur — Bachelors degree in Computer and Information Sciences.
-- Open to freelance projects, full-time remote roles, and on-site opportunities in Lahore
+- Studied at The Islamia University of Bahawalpur — Associate's degree in Computer and Information Sciences and Support Services
+- Currently doing freelance work, and open to full-time remote roles as well as on-site opportunities in Lahore
 - Most recently built and deployed a full production website for Madina Model School, including a secure JWT-authenticated admin panel and a multi-service cloud deployment (Vercel, Render, Aiven)
 
 WORK EXPERIENCE:
-- Tech Joint IT Solutions — Full Stack Developer Intern (Nov 2025 – Jun 2026): Building responsive web apps with React.js/JavaScript and integrating AI features via Flask APIs
+- Tech Joint IT Solutions — Full Stack Developer Intern (Nov 2025 – Jun 2026, completed): Built responsive web apps with React.js/JavaScript and integrated AI features via Flask APIs
 - TFT (Training From Tomorrow) — Web Development Trainee (Aug 2024 – Feb 2025): Gained foundational and practical experience in web development, working on real project tasks and strengthening core full-stack skills before joining Tech Joint
+- Currently working on freelance projects, including a full production website build for Madina Model School
 
 CERTIFICATIONS:
 - Full Stack Web Development Certification — NAVTTC
